@@ -45,7 +45,7 @@ exports.handler = function(event, context) {
                 if (!!data && !!data.Reservations && !!data.Reservations[0] &&
                     !!data.Reservations[0].Instances &&
                     !!data.Reservations[0].Instances[0] &&
-                    data.Reservations[0].Instances[0].InstanceId==etlInstanceId &&
+                    data.Reservations[0].Instances[0].InstanceId==instanceIdList[0] &&
                     !!data.Reservations[0].Instances[0].State &&
                     !!data.Reservations[0].Instances[0].State.Code )
                 {
@@ -55,7 +55,7 @@ exports.handler = function(event, context) {
                         console.log("Starting instance");
 
                         var startParams = {
-                            InstanceIds: [ etlInstanceId],
+                            InstanceIds: [ instanceIdList[0]],
                             DryRun: false
                         };
                         ec2.startInstances(startParams, function(err, data) {
@@ -74,7 +74,7 @@ exports.handler = function(event, context) {
                     }
                 }
                 else {
-                    context.fail("Could not find the ETL instance");
+                    context.fail("Could not find the requested instance");
                 }
             }
         });
