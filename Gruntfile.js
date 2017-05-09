@@ -1,6 +1,8 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+      cfg: grunt.file.readJSON('cheapo-config.json'),
+
     clean: ["dist"],
     simplemocha: {
       options: {
@@ -28,7 +30,7 @@ module.exports = function(grunt) {
     },
     lambda_deploy: {
       default: {
-        arn: 'arn:aws:lambda:us-east-1:YOUR_AWS_ID:function:CHEAPO',
+        arn: '<%=cfg.lambdaArn%>' ,
         options: {
           timeout: 10,
           memory: 128

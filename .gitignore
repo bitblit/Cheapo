@@ -1,2 +1,5 @@
 .idea
 *.iml
+cheapo-config.json
+dist
+node_modules

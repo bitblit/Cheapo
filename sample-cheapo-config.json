@@ -1,0 +1,4 @@
+{
+  "note" : "Copy me to cheapo-config.json and paste the correct data below",
+  "lambdaArn" : "arn:aws:lambda:{REGION}:{ACCOUNT}:function:{FN_NAME}"
+}
